@@ -1,6 +1,15 @@
 name: Build
 
 on:
+  workflow_dispatch:  # 启用手动触发
+    inputs:           # （可选）定义触发时可输入的参数
+      env:
+        description: '部署环境'
+        required: true
+        default: 'staging'
+      debug:
+        type: boolean
+        default: false
   push:
     paths-ignore:
       - 'docs/**'
